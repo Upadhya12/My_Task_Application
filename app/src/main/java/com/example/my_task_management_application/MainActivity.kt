@@ -18,11 +18,16 @@ class MainActivity : AppCompatActivity() {
                 } finally {
                     val mainIntent = Intent(this@MainActivity, HomeTaskActivity::class.java)
                     startActivity(mainIntent)
-                    finish()
+
                 }
             }
         }
         thread.start()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        finish()
     }
 
 

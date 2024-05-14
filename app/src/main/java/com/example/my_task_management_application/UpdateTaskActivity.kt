@@ -3,17 +3,17 @@ package com.example.my_task_management_application
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.my_task_management_application.databinding.ActivityUpdateBinding
+import com.example.my_task_management_application.databinding.ActivityUpdateTaskBinding
 
 class UpdateTaskActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityUpdateBinding
+    private lateinit var binding: ActivityUpdateTaskBinding
     private lateinit var db: TaskDatabaseHelper
     private var taskId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityUpdateBinding.inflate(layoutInflater)
+        binding = ActivityUpdateTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         db = TaskDatabaseHelper(this)
