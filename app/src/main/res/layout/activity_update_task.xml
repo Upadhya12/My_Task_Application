@@ -29,6 +29,19 @@
         android:src="@drawable/baseline_create_24" />
 
     <EditText
+        android:id="@+id/updateTaskEditText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Enter the Task"
+        android:padding="12dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins"
+        android:background="@drawable/blue_border"
+        android:layout_below="@+id/editTaskHeading"
+        android:maxLines="1"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
         android:id="@+id/updateContentEditText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -38,7 +51,7 @@
         android:textSize="18sp"
         android:fontFamily="@font/poppins"
         android:background="@drawable/blue_border"
-        android:layout_below="@+id/editTaskHeading"
+        android:layout_below="@+id/updateTaskEditText"
         android:layout_marginTop="12dp"/>
 
 

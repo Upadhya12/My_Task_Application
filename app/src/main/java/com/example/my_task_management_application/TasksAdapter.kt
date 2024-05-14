@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class TaskAdapter(private var tasks: List<Task>, context: Context) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+class TasksAdapter(private var tasks: List<Task>, context: Context) : RecyclerView.Adapter<TasksAdapter.TaskViewHolder>() {
     private val db: TaskDatabaseHelper = TaskDatabaseHelper(context)
 
     class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
