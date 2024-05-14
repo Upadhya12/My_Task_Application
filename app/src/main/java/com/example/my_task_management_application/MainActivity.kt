@@ -3,32 +3,36 @@ package com.example.my_task_management_application
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.my_task_management_application.databinding.ActivityMainBinding
+
+
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding:ActivityMainBinding
+    private lateinit var db: TaskDatabaseHelper
+    private lateinit var tasksAdapter: TasksAdapter
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val thread = object : Thread() {
-            override fun run() {
-                try {
-                    sleep(5000)
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                } finally {
-                    val mainIntent = Intent(this@MainActivity, HomeTaskActivity::class.java)
-                    startActivity(mainIntent)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-                }
-            }
+        db = TaskDatabaseHelper(this)
+        tasksAdapter = TasksAdapter(db.getAllTasks(), this)
+
+        binding.tasksRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.tasksRecyclerView.adapter = tasksAdapter
+
+        binding.addButton.setOnClickListener {
+            val  intent =   Intent(this,AddTaskActivity::class.java)
+            startActivity(intent)
         }
-        thread.start()
     }
-
-    override fun onPause() {
-        super.onPause()
-        finish()
+    override fun onResume() {
+        super.onResume()
+        tasksAdapter.refreshData(db.getAllTasks())
     }
-
-
 }

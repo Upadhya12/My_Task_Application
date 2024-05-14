@@ -6,4 +6,6 @@
     <string name="enter_the_description">Enter the description</string>
     <string name="tasks">Tasks.</string>
     <string name="add_task">Add Task.</string>
+    <string name="Content">Content</string>
+    <string name="TODO">TODO</string>
 </resources>
